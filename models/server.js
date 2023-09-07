@@ -10,6 +10,7 @@ class Server{
         this.port = process.env.PORT;
         this.paths = {
             init: '/api/init',
+            usuarios: '/api/usuarios'
         }
         //Conexion a la BD
         this.conectarDB();
@@ -39,6 +40,7 @@ class Server{
 
     routes(){
         this.app.use(this.paths.init, require('../routes/init'));
+        this.app.use(this.paths.usuarios, require('../routes/usuarios'));
     }
 
     listen(){
