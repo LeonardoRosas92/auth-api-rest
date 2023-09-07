@@ -1,7 +1,7 @@
 {
-  "name": "judotecnia-backend",
+  "name": "auth-api-rest",
   "version": "1.0.0",
-  "description": "Rest Server to Judotecnia",
+  "description": "Auth Api Rest",
   "main": "index.js",
   "scripts": {
     "start": "node app"
@@ -22,5 +22,8 @@
     "mongoose": "^7.0.2",
     "nodemailer": "^6.9.5",
     "uuid": "^9.0.0"
+  },
+  "engines": {
+    "node": ">=14 <15"
   }
 }
