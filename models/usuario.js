@@ -16,6 +16,14 @@ const UsuarioSchema = new Schema({
         type: String,
         required: [true, 'El password es obligatorio'],
     },
+    banco: {
+        type: String,
+        required: [true, 'El banco es obligatorio'],
+    },
+    uuid: {
+        type: String,
+        required: [true, 'El password es obligatorio'],
+    },
     creado: { 
         type: Date, 
         default: Date.now 

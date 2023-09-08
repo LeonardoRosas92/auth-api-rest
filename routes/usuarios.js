@@ -21,6 +21,7 @@ router.post('/registro', [
     check('password', 'El password es obligatorio').not().isEmpty(),
     check('password', 'El password debe de ser mas de 8 letras').isLength({ min: 8 }),
     check('email').custom(usuarioExiste),
+    check('banco', 'El banco es obligatorio').not().isEmpty(),
     validarCampos
 ], registrarUsuario);
 

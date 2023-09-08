@@ -45,13 +45,13 @@ const emailRegistro = async (datos) => {
 
         transporter.sendMail(mailOptions, function (error, info) {
             if (error) {
-                console.log(error);
+                console.log("ERROR MAIL: "+error);
             } else {
                 console.log('Email sent: ' + info.response);
             }
         });
-    } catch (error) {
-        console.log(error);
+    } catch (e) {
+        console.log("ERROR: "+e);
     }
 }
 
