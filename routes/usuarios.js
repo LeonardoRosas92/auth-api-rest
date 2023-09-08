@@ -15,13 +15,15 @@ router.post('/login', [
 
 router.post('/registro', [  
     check('nombre', 'El nombre es obligatorio').not().isEmpty(),
-    check('apellido', 'El apellido paterno es obligatorio').not().isEmpty(),
+    check('apellidoPaterno', 'El apellido paterno es obligatorio').not().isEmpty(),
+    check('apellidoMaterno', 'El apellido materno es obligatorio').not().isEmpty(),
     check('email', 'El correo es obligatorio').not().isEmpty(),
     check('email', 'El correo no tiene el formato correcto').isEmail(),
     check('password', 'El password es obligatorio').not().isEmpty(),
     check('password', 'El password debe de ser mas de 8 letras').isLength({ min: 8 }),
     check('email').custom(usuarioExiste),
-    check('banco', 'El banco es obligatorio').not().isEmpty(),
+    check('telefono', 'El telefono es obligatorio').not().isEmpty(),
+    check('fechaNacimiento', 'La fecha de nacimiento es obligatoria').not().isEmpty(),
     validarCampos
 ], registrarUsuario);
 

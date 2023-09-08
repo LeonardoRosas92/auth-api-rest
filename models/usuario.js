@@ -4,7 +4,11 @@ const UsuarioSchema = new Schema({
         type: String,
         required: [true, 'El nombre es obligatorio']
     },
-    apellido: {
+    apellidoPaterno: {
+        type: String,
+        required: [true, 'El apellido es obligatorio']
+    },
+    apellidoMaterno: {
         type: String,
         required: [true, 'El apellido es obligatorio']
     },
@@ -16,13 +20,13 @@ const UsuarioSchema = new Schema({
         type: String,
         required: [true, 'El password es obligatorio'],
     },
-    banco: {
+    telefono: {
         type: String,
-        required: [true, 'El banco es obligatorio'],
+        required: [true, 'El telefono es obligatorio'],
     },
-    uuid: {
-        type: String,
-        required: [true, 'El password es obligatorio'],
+    fechaNacimiento: {
+        type: Date,
+        required: [true, 'La fecha de nacimiento es obligatorio'],
     },
     creado: { 
         type: Date, 

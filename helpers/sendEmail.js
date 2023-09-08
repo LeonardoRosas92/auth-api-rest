@@ -12,7 +12,7 @@ const transporter = nodemailer.createTransport({
 });
 
 const emailRegistro = async (datos) => {
-    console.log(datos.nombre,datos.apellido,datos.email,process.env.EMAIL_USER);
+    console.log(datos.nombre,datos.apellidoPaterno,datos.email,process.env.EMAIL_USER);
     try {
         const filePath = path.join(__dirname, '../templates/correoRegistro.html');
         const source = fs.readFileSync(filePath, 'utf-8').toString();

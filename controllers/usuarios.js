@@ -38,36 +38,29 @@ const registrarUsuario = async (req, res = response) => {
     try {
         const {
             nombre,
-            apellido,
+            apellidoPaterno,
+            apellidoMaterno,
             email,
             password,
-            banco
+            telefono,
+            fechaNacimiento
         } = req.body;
-        const uuid = await crearLink(banco);
-        if(!uuid){
-            console.log("uuid fail");
-            return res.status(500).json(
-                { 
-                    msg : `El banco ${banco} no esta disponible por el momento`
-                }
-            );
-        }
         const usuario = new Usuario({
             nombre,
-            apellido,
+            apellidoPaterno,
+            apellidoMaterno,
             email,
             password,
-            banco,
-            uuid
+            telefono,
+            fechaNacimiento
         });
-        console.log( email, banco);
         //Encriptar la contraseña
         const salt = bcryptjs.genSaltSync();
         usuario.password = bcryptjs.hashSync(password, salt);
         //Guardar en BD
         await usuario.save();
         //Enviamos registro
-        await emailRegistro({ nombre, apellido, email });
+        await emailRegistro({ nombre, apellidoPaterno, email });
         res.json({
             msg: "Usuario regitrado,hemos enviado un correo de confirmación.",
         });
