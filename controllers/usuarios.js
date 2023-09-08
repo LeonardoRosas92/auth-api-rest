@@ -18,7 +18,7 @@ const login = async (req, res = response) => {
         if (!validPassword) {
             return res.status(401).json({
                 msg: "Usuario y/o Password son incorrectos",
-            });
+        });
         }
         //Generar JWT
         const token = await generarJWT(usuario._id);
@@ -72,6 +72,7 @@ const registrarUsuario = async (req, res = response) => {
             msg: "Usuario regitrado,hemos enviado un correo de confirmación.",
         });
     } catch (error) {
+        console.log(error);
         return res.status(500).json({ msg: error.message });
     }
 };

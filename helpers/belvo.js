@@ -1,4 +1,7 @@
 const crearLink = async (nombreBanco) => {
+  console.log(nombreBanco);
+  console.log(`${process.env.BELVO_URL}/links/`);
+  console.log(process.env.BELVO_AUTH);
   try {
     const response = await fetch(`${process.env.BELVO_URL}/links/`, {
       method: 'POST',
@@ -18,7 +21,7 @@ const crearLink = async (nombreBanco) => {
     console.log("Id Belbo "+id);
     return id
   } catch (error) {
-    console.log("Error Belbo"+error);
+    console.log("Error Belbo "+error);
   }
 }
 
